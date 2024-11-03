@@ -39,7 +39,7 @@ def step4_view(request):
     if request.method == "POST":
         form = Step4Form(request.POST)
         if form.is_valid():
-            request.session['lifeboat'] = form.cleaned_data['lifeboat']
+            request.session['went_to_lifeboat'] = form.cleaned_data['went_to_lifeboat']
             return redirect('results')
     else:
         form = Step4Form()
@@ -50,7 +50,7 @@ def results_view(request):
     age = request.session.get('age')
     gender = request.session.get('gender')
     sick = request.session.get('sick')
-    lifeboat = request.session.get('lifeboat')
+    lifeboat = request.session.get('went_to_lifeboat')
 
     # Prepare features for the model
     model_features = [[age, gender, sick, lifeboat]]
