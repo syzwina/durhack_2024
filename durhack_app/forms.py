@@ -27,3 +27,21 @@ class ModelForm(forms.Form):
     can_swim = forms.ChoiceField(choices = can_swim_choices)
     cabin = forms.ChoiceField(choices = cabin_choices)
     cabin_location = forms.ChoiceField(choices = cabin_location_choices)
+
+class Step1Form(forms.Form):
+    age = forms.IntegerField()
+
+class Step2Form(forms.Form):
+    pclass = forms.IntegerField()
+
+class Step3Form(forms.Form):
+    sex = forms.ChoiceField(choices = sex_choices)
+
+class Step4Form(forms.Form):
+    can_swim = forms.ChoiceField(choices = can_swim_choices)
+
+class Step5Form(forms.Form):
+    cabin = forms.ChoiceField(choices = cabin_choices)
+
+class Step6Form(forms.Form):
+    cabin_location = forms.ChoiceField(choices = cabin_location_choices)
