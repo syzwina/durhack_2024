@@ -12,7 +12,6 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
-                <h1 class="mt-2">Survival Splash</h1>
                 <hr class="mt-0 mb-4">
                 {% block content %}
                 {% endblock %}
@@ -21,4 +20,57 @@
     </div>
 </body>
 
+<style>
+/* Ensure the body and html take up the full viewport with no margins */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrollbars */
+    background-color: #0077be; /* Backup color in case gradient doesn’t load */
+}
+
+/* Card with a Translucent, Ocean-like Effect */
+.ship-card {
+    background-color: rgba(0, 0, 51, 0.7); /* Dark blue with transparency */
+    border-radius: 15px;
+    margin-top: 15rem;
+}
+
+
+/* Title Styling for a Ship or Ocean Feel */
+.ship-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace; /* A nautical-style font */
+    text-shadow: 2px 2px #003366; /* Dark shadow for depth */
+    margin-bottom: 1rem;
+}
+
+.ship-step {
+    font-size: 1.75rem;
+    color: #cceeff;
+    margin-bottom: 1.5rem;
+}
+
+/* Button Styling with a Wave-Like Effect */
+.wave-button {
+    background-color: #0099cc;
+    border: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    color: white;
+}
+
+.wave-button:hover {
+    background-color: #006994; /* Darker shade for hover */
+    transform: scale(1.1);
+}
+
+/* Progress Bar Styling to Match Ocean Colors */
+.progress-bar.bg-info {
+    background-color: #00ace6; /* Lighter blue for a wave effect */
+}
+
+</style>
 </html>

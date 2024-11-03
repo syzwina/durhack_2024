@@ -122,3 +122,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# URL to use when referring to static files
+STATIC_URL = '/static/'
+
+# Define directories where Django will look for static files
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Adjust based on your project structure
+]

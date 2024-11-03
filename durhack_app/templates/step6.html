@@ -1,9 +1,26 @@
 {% extends 'base.html' %}
+{% load form_tags %}
+
 {% block content %}
-  <h2>Select Your Cabin Location</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Next">
-  </form>
+<div class="text-center card p-4 shadow-lg ship-card">
+    <!-- Title and Subtitle with an Ocean Theme -->
+    <h1 class="ship-title text-primary">Survival Splash</h1>
+    <h2 class="ship-step text-info">Step 6: Select Your Cabin Location</h2>
+    
+    <!-- Progress Bar with Ocean Colors -->
+    <div class="progress mb-4" style="height: 20px;">
+      <div class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Step 6 of 6</div>
+    </div>
+    
+    <!-- Form Section -->
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        {% for field in form %}
+          {{ field|add_class:"form-control-lg text-center" }}
+        {% endfor %}
+      </div>
+      <button type="submit" class="btn btn-info btn-lg mt-4 wave-button">Finish</button>
+    </form>
+</div>
 {% endblock %}
