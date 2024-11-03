@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from sklearn.model_selection import train_test_split
 
 df = pd.read_csv('training.csv')
 
@@ -62,4 +63,12 @@ def calculate_survival_probability(row):
 
 df['Survival Probability'] = df.apply(calculate_survival_probability, axis=1)
 df['Survive'] = df['Survival Probability'].apply(lambda x: 1 if x >= 0.8 else 0)
+
+
 df.to_csv('training_modified.csv', index=False)
+
+train_df, test_df = train_test_split(df, test_size=0.2, stratify=df['Survive'], random_state=42)
+
+# Save the training and test sets to CSV files if needed
+train_df.to_csv('training_set.csv', index=False)
+test_df.to_csv('test_set.csv', index=False)
