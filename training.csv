@@ -417,3 +417,4 @@ PassengerId,Survived,Pclass,Name,Sex,Age,Cabin
 1307,0,3,"Saether, Mr. Simon Sivertsen",male,38.5,
 1308,0,3,"Ware, Mr. Frederick",male,,
 1309,0,3,"Peter, Master. Michael J",male,,
+1310,0,1,"Franklin, Mr. Thomas",male,44
