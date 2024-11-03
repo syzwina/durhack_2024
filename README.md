@@ -13,3 +13,6 @@ We are really proud of the fact that we were able to learn new software like Dja
 We learned to get out of our comfort zone and try out new things. We were not afraid to face all the problems that we would encounter.
 
 We aim to create a more comprehensive dataset and train our model more. We would like to make the game more interesting and have more user functions and scenarios. Basically, we would like to create a game that would be extremely addictive and fun to play by all!
+
+References  
+https://github.com/katiehouse/django-scikit-learn-tutorial/wiki/8.-Create-a-machine-learning-model-with-the-Iris-dataset
