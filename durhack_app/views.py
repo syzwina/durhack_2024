@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .forms import ModelForm
+from .forms import Step1Form, Step2Form, Step3Form, Step4Form
 import pickle
 from .models import Predictions
+from .forms import Step1Form, Step2Form, Step3Form, Step4Form
 
 def predict_model(request):
     # if this is a POST request we need to process the form data
@@ -43,3 +44,48 @@ def predict_model(request):
         form = ModelForm()
 
     return render(request, 'home.html', {'form': form})
+
+
+
+
+
+
+def step1_view(request):
+    if request.method == "POST":
+        form = Step1Form(request.POST)
+        if form.is_valid():
+            request.session['age'] = form.cleaned_data['age']
+            return redirect('step2')  
+    else:
+        form = Step1Form()
+    return render(request, 'step1.html', {'form': form})
+
+def step2_view(request):
+    if request.method == "POST":
+        form = Step2Form(request.POST)
+        if form.is_valid():
+            request.session['gender'] = form.cleaned_data['gender']
+            return redirect('step3')
+    else:
+        form = Step2Form()
+    return render(request, 'step2.html', {'form': form})
+
+def step3_view(request):
+    if request.method == "POST":
+        form = Step3Form(request.POST)
+        if form.is_valid():
+            request.session['sick'] = form.cleaned_data['sick']
+            return redirect('step4')
+    else:
+        form = Step3Form()
+    return render(request, 'step3.html', {'form': form})
+
+def step4_view(request):
+    if request.method == "POST":
+        form = Step4Form(request.POST)
+        if form.is_valid():
+            request.session['lifeboat'] = form.cleaned_data['lifeboat']
+            return redirect('results')
+    else:
+        form = Step4Form()
+    return render(request, 'step4.html', {'form': form})

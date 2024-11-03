@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Step 4: Went to Lifeboat?</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Next">
+  </form>
+{% endblock %}
