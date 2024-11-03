@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% load static %}
 </head>
 
 <body>
+    <!-- Link to the separate JavaScript file -->
+    <script src="{% static 'js/results.js' %}"></script>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
                 <hr class="mt-0 mb-4">
-                {% load form_tags %}
 
-                <div class="text-center card p-4 shadow-lg ship-card">
+                <div id="outcome-card" class="text-center card p-4 shadow-lg ship-card">
                     <p id="prediction-text" class="display-4 font-weight-bold text-white">
                         <b>{{ prediction_name }}</b>
                     </p>
@@ -23,6 +25,12 @@
             </div>
         </div>
     </div>
+
+    <audio id="survives-sound" src="{% static 'sounds/survives.mp3' %}"></audio>
+    <audio id="dies-sound" src="{% static 'sounds/dies.mp3' %}"></audio>
+
+
+   
 </body>
 
 <style>
@@ -38,11 +46,20 @@ html, body {
 
 /* Card with a Translucent, Ocean-like Effect */
 .ship-card {
-    background-color: rgba(189, 189, 234, 0.7); /* Dark blue with transparency */
+    background-color: rgba(189, 189, 234, 0.7); /* Default color */
     border-radius: 15px;
     margin-top: 15rem;
 }
 
+/* Green background for "survive" outcome */
+.survive-card {
+    background-color: rgba(40, 167, 69, 0.8); /* Bootstrap success color with transparency */
+}
+
+/* Red background for "die" outcome */
+.die-card {
+    background-color: rgba(220, 53, 69, 0.8); /* Bootstrap danger color with transparency */
+}
 
 /* Title Styling for a Ship or Ocean Feel */
 .ship-title {
@@ -77,17 +94,16 @@ html, body {
     background-color: #00ace6; /* Lighter blue for a wave effect */
 }
 
-  /* Container to take up full viewport height and center text */
-  .result-container {
+/* Container to take up full viewport height and center text */
+.result-container {
     text-align: center;
-  }
+}
 
-  /* Styling for prediction text */
-  .prediction-message {
+/* Styling for prediction text */
+.prediction-message {
     font-size: 3rem; /* Increase font size */
     font-weight: bold;
-  }
-
+}
 </style>
-</html>
 
+</html>

@@ -83,7 +83,7 @@ def results_view(request):
     prediction = loaded_model.predict(model_features)[0]
 
     # Map prediction result to human-readable name
-    prediction_dict = [{'name': 'Oh no! You drowned!'}, {'name': 'Congratulations! You survived!'}]
+    prediction_dict = [{'name': 'dead'}, {'name': 'survives'}]
     prediction_name = prediction_dict[prediction]['name']
 
     # Save the prediction in the database
