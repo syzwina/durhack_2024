@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.shortcuts import redirect
 from durhack_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', lambda request: redirect('step1/', permanent=True)),
     path('step1/', views.step1_view, name='step1'),
     path('step2/', views.step2_view, name='step2'),
     path('step3/', views.step3_view, name='step3'),
